@@ -1,5 +1,30 @@
 [alias]
 
+	st = status
+	d = diff
+	ci = commit -v
+	cia = commit -v -a
+	co = checkout
+	cp = cherry-pick
+	l = log
+	ll = log -p
+	lt = log trunk..
+	llt = log -p trunk..
+	lm = log master..
+	llm = log -p master..
+	b = branch
+	rb5 = rebase -i HEAD~5
+	spp = !git stash && git push && git stash pop
+	pull = pull --rebase
+	merge = merge --no-ff
+	lsf = "!pwd"
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+	assume   = update-index --assume-unchanged
+	assumeall = "!git update-index --assume-unchanged $(git ls-files | tr '\\n' ' ')"
+	unassume = update-index --no-assume-unchanged
+	assumed  = "!git ls-files -v | grep ^h | cut -c 3-"
+
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
 
@@ -78,6 +103,8 @@
 	whitespace = fix
 
 [core]
+
+  autocrlf = input
 
 	# Use custom `.gitignore` and `.gitattributes`
 	excludesfile = ~/.gitignore
